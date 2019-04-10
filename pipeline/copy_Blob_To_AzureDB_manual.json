@@ -1,0 +1,50 @@
+{
+	"name": "copy_Blob_To_AzureDB_manual",
+	"properties": {
+		"description": "Not using the Copy Data wizard.",
+		"activities": [
+			{
+				"name": "copy_Blob_To_AzureDB",
+				"type": "Copy",
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"typeProperties": {
+					"source": {
+						"type": "BlobSource",
+						"recursive": false
+					},
+					"sink": {
+						"type": "SqlSink",
+						"writeBatchSize": 10000,
+						"preCopyScript": "TRUNCATE TABLE dbo.Emp"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"FirstName": "FirstName",
+							"LastName": "LastName"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "azurestoragemb_blob_input_tq",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "PWAzureTraining_SQLDB_dboEmp",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		]
+	}
+}
