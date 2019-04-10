@@ -1,0 +1,23 @@
+{
+	"name": "PWAzureTraining_SQLDB_dboEmp",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Azure_SQLDB_PWAzureTraining",
+			"type": "LinkedServiceReference"
+		},
+		"type": "AzureSqlTable",
+		"structure": [
+			{
+				"name": "FirstName",
+				"type": "String"
+			},
+			{
+				"name": "LastName",
+				"type": "String"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[dbo].[emp]"
+		}
+	}
+}
