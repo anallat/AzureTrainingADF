@@ -1,0 +1,24 @@
+{
+	"name": "DestinationDataset_ib6",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "BlobStorage_azurestoragemb",
+			"type": "LinkedServiceReference"
+		},
+		"type": "AzureBlob",
+		"typeProperties": {
+			"format": {
+				"type": "TextFormat",
+				"columnDelimiter": ",",
+				"rowDelimiter": "",
+				"nullValue": "\\N",
+				"treatEmptyAsNull": true,
+				"skipLineCount": 0,
+				"firstRowAsHeader": false
+			},
+			"fileName": "dbo.emp",
+			"folderPath": "pw-container/onpremsqlserver"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

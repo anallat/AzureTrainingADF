@@ -1,0 +1,59 @@
+{
+	"name": "CopyFromBlobToAzureSQLDB",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy_9cg",
+				"type": "Copy",
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "pw-container/Demo 05/inputEmp_tq.txt"
+					},
+					{
+						"name": "Destination",
+						"value": "[dbo].[emp]"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "BlobSource",
+						"recursive": true
+					},
+					"sink": {
+						"type": "SqlSink",
+						"writeBatchSize": 10000
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"FirstName": "FirstName",
+							"LastName": "LastName"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SourceDataset_9cg",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationDataset_9cg",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

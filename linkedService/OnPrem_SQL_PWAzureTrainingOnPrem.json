@@ -1,0 +1,15 @@
+{
+	"name": "OnPrem_SQL_PWAzureTrainingOnPrem",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"type": "SqlServer",
+		"typeProperties": {
+			"connectionString": "integrated security=False;data source=DEN-HBPXJR2\\HBPXJR2;initial catalog=PWAzureTrainingOnPrem;user id=sa",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI4M2NjM2VjMS1mNTVmLTRkZGMtODcyYy1kMzZlNDg2Nzc2MjYiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "HBPXJR2LocalMachine",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

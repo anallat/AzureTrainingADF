@@ -1,0 +1,14 @@
+{
+	"name": "SourceDataset_ib6",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "OnPrem_SQL_PWAzureTrainingOnPrem",
+			"type": "LinkedServiceReference"
+		},
+		"type": "SqlServerTable",
+		"typeProperties": {
+			"tableName": "[dbo].[emp]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
