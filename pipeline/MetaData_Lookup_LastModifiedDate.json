@@ -23,6 +23,27 @@
 						"itemName"
 					]
 				}
+			},
+			{
+				"name": "Get_Last_Execution_Data",
+				"type": "Lookup",
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"typeProperties": {
+					"source": {
+						"type": "SqlSource",
+						"sqlReaderStoredProcedureName": "[dbo].[usp_LastLoadDate]"
+					},
+					"dataset": {
+						"referenceName": "PWAzureTraining_SQLDB_dboEmp",
+						"type": "DatasetReference"
+					}
+				}
 			}
 		]
 	}
